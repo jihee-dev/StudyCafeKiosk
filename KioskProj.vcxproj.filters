@@ -36,6 +36,9 @@
     <ClCompile Include="AdminLogin.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="SeatSelectView.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="KioskMenu.h">
@@ -57,6 +60,9 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="AdminLogin.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="SeatSelectView.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

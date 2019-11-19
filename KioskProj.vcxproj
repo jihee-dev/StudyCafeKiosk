@@ -139,6 +139,7 @@
     <ClCompile Include="CalView.cpp" />
     <ClCompile Include="KioskMenu.cpp" />
     <ClCompile Include="ResetPwView.cpp" />
+    <ClCompile Include="SeatSelectView.cpp" />
     <ClCompile Include="StockView.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -156,6 +157,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="ResetPwView.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="SeatSelectView.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="StockView.h">
