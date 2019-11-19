@@ -52,7 +52,6 @@ namespace KioskProj {
 		{
 			this->SuspendLayout();
 
-			// technet.microsoft.com/ko-kr/yk97tc08(v=vs.91)
 			ArrayList^ btnArr = gcnew ArrayList();
 
 

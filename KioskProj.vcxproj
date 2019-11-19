@@ -182,6 +182,9 @@
     <EmbeddedResource Include="ResetPwView.resx">
       <DependentUpon>ResetPwView.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SeatSelectView.resx">
+      <DependentUpon>SeatSelectView.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="StockView.resx">
       <DependentUpon>StockView.h</DependentUpon>
     </EmbeddedResource>

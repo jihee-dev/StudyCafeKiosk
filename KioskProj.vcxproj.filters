@@ -82,9 +82,6 @@
     <EmbeddedResource Include="StockView.resx">
       <Filter>리소스 파일</Filter>
     </EmbeddedResource>
-    <EmbeddedResource Include="SeatSelectView.resx">
-      <Filter>리소스 파일</Filter>
-    </EmbeddedResource>
     <EmbeddedResource Include="AdminLogin.resx">
       <Filter>리소스 파일</Filter>
     </EmbeddedResource>
