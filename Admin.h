@@ -13,7 +13,14 @@ private:
 	int cumul_sales;
 	int drink_stock[3];
 
-	Admin() {};
+	Admin() {
+		this->pw = "1234";
+		this->today_people = 1;
+		this->today_sales = 2;
+		this->cumul_people = 3;
+		this->cumul_sales = 4;
+
+	};
 	~Admin() {};
 	static Admin* instance;
 
@@ -30,4 +37,9 @@ public:
 	void admin_mode(); //관리자모드: 정산 또는 재고의 print 호출
 
 	static Admin* getInstance();
+
+	int getToday_people();
+	int getToday_sales();
+	int getCumul_people();
+	int getCumul_sales();
 };

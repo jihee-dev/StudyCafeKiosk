@@ -76,3 +76,19 @@ Admin* Admin::getInstance() {
 
 	return instance;
 }
+
+int Admin::getToday_people() {
+	return today_people;
+}
+
+int Admin::getToday_sales() {
+	return today_sales;
+}
+
+int Admin::getCumul_people() {
+	return cumul_people;
+}
+
+int Admin::getCumul_sales() {
+	return cumul_sales;
+}

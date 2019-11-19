@@ -1,4 +1,5 @@
 #pragma once
+#include"Admin.h"
 
 namespace KioskProj {
 
@@ -115,7 +116,7 @@ namespace KioskProj {
 			this->today_people_text->Name = L"today_people_text";
 			this->today_people_text->Size = System::Drawing::Size(223, 21);
 			this->today_people_text->TabIndex = 4;
-			this->today_people_text->Text = L"Admin::getTodayPeople()";
+			this->today_people_text->Text = (Admin::getInstance()->getToday_people()).ToString();
 			// 
 			// today_sales_text
 			// 
@@ -125,7 +126,7 @@ namespace KioskProj {
 			this->today_sales_text->Name = L"today_sales_text";
 			this->today_sales_text->Size = System::Drawing::Size(209, 21);
 			this->today_sales_text->TabIndex = 5;
-			this->today_sales_text->Text = L"Admin::getTodaySales()";
+			this->today_sales_text->Text = (Admin::getInstance()->getToday_sales()).ToString();
 			// 
 			// total_people_text
 			// 
@@ -135,7 +136,7 @@ namespace KioskProj {
 			this->total_people_text->Name = L"total_people_text";
 			this->total_people_text->Size = System::Drawing::Size(215, 21);
 			this->total_people_text->TabIndex = 6;
-			this->total_people_text->Text = L"Admin::getTotalPeople()";
+			this->total_people_text->Text = (Admin::getInstance()->getCumul_people()).ToString();
 			// 
 			// total_sales_text
 			// 
@@ -145,7 +146,7 @@ namespace KioskProj {
 			this->total_sales_text->Name = L"total_sales_text";
 			this->total_sales_text->Size = System::Drawing::Size(201, 21);
 			this->total_sales_text->TabIndex = 7;
-			this->total_sales_text->Text = L"Admin::getTotalSales()";
+			this->total_sales_text->Text = (Admin::getInstance()->getCumul_sales()).ToString();
 			// 
 			// CalView
 			// 

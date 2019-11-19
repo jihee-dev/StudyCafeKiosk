@@ -33,9 +33,6 @@
     <ClCompile Include="StockView.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="SeatSelectView.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="AdminLogin.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -59,9 +56,6 @@
     <ClInclude Include="StockView.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="SeatSelectView.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="AdminLogin.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
@@ -83,6 +77,9 @@
       <Filter>리소스 파일</Filter>
     </EmbeddedResource>
     <EmbeddedResource Include="SeatSelectView.resx">
+      <Filter>리소스 파일</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminLogin.resx">
       <Filter>리소스 파일</Filter>
     </EmbeddedResource>
   </ItemGroup>
