@@ -1,81 +1,9 @@
-#include <iostream>
-#include <string>
-#include <fstream>
-#include "Admin.h"
+#include<iostream>
+#include<string>
+#include<fstream>
+#include"Admin.h"
+#include"Drink.h"
 using namespace std;
-
-void Admin::setCalzero() {
-	today_people = 0;
-	today_sales = 0;
-	cumul_people = 0;
-	cumul_sales = 0;
-}
-
-void Admin::calInc(int price) {
-	today_people += 1;
-	cumul_people += 1;
-	today_sales += price;
-	cumul_sales += price;
-
-	ofstream fileOut("calculate.txt");
-	if (fileOut.is_open()) {
-		fileOut << "누적 사용자 수: " << cumul_people << endl;
-		fileOut << "누적 매출 금액: " << cumul_sales << endl;
-	}
-}
-
-bool Admin::logIn(string input_pw) {
-	return input_pw == this->pw;
-}
-
-void Admin::setPw(string pw) {
-	this->pw = pw;
-}
-
-void Admin::setStock(int ame, int latte, int tea) {
-	drink_stock[0] = ame;
-	drink_stock[1] = latte;
-	drink_stock[2] = tea;
-}
-
-void Admin::cal_print() {
-	ifstream fileIn("calculate.txt");
-
-	/* cout << "\n--------------정산 목록------------------" << endl;
-	cout << "하루 사용자 수: " << today_people << endl;
-	cout << "하루 매출: " << today_sales << endl;
-
-	char buf[50];
-	while (fileIn) {
-		fileIn.getline(buf, 50);
-		cout << buf << endl;
-	}
-
-
-	//cout << "누적 사용자 수: " << cumul_people << endl;
-	//cout << "누적 매출: " << cumul_sales << endl;
-	cout << "----------------------------------------" << endl; */
-
-}
-
-void Admin::stock_print() {
-	/*
-	cout << "\n-------------음료 재고 목록---------------" << endl;
-	cout << "Americano: " << drink_stock[0] << endl;
-	cout << "Latte: " << drink_stock[1] << endl;
-	cout << "Tea: " << drink_stock[2] << endl;
-	cout << "------------------------------------------" << endl; */
-}
-
-Admin* Admin::instance = nullptr;
-
-Admin* Admin::getInstance() {
-	if (instance == nullptr) {
-		instance = new Admin();
-	}
-
-	return instance;
-}
 
 int Admin::getToday_people() {
 	return today_people;
@@ -92,3 +20,63 @@ int Admin::getCumul_people() {
 int Admin::getCumul_sales() {
 	return cumul_sales;
 }
+
+Drink* Admin::getDrinks0() {
+	return this->drinks;
+}
+
+Drink* Admin::getDrinks1() {
+	return drinks + 1;
+}
+
+Drink* Admin::getDrinks2() {
+	return drinks + 2;
+}
+
+bool Admin::logIn(string input_pw) {
+	return input_pw == this->pw;
+}
+
+void Admin::setPw(string pw) {
+	this->pw = pw;
+}
+
+void Admin::setCalzero() { // 하루 정산 초기화
+	today_people = 0;
+	today_sales = 0;
+}
+
+void Admin::calInc(Drink* d) { // 구매시 정산 내역 수정
+	today_people += 1;
+	cumul_people += 1;
+	today_sales += d->getPrice();
+	cumul_sales += d->getPrice();
+
+	ofstream fileOut("calculate.txt");
+	if (fileOut.is_open()) {
+		fileOut << "누적 사용자 수: " << cumul_people << endl;
+		fileOut << "누적 매출 금액: " << cumul_sales << endl;
+	}
+}
+
+void Admin::stock_mng(Drink drinks[]) {
+	// 재고 수정 확인
+	int change;   // 변경 입력 저장
+	int stock_select, stock_amount;  // 재고 변경할 음료 번호, 수량
+	int more_input = 1;
+
+	for (int i = 0; i < 3; i++) {
+		drinks[i].addStock(3);
+	}
+}
+
+Admin* Admin::instance = nullptr;
+
+Admin* Admin::getInstance() {
+	if (instance == nullptr) {
+		instance = new Admin();
+	}
+
+	return instance;
+}
+

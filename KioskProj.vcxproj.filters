@@ -42,6 +42,15 @@
     <ClCompile Include="TimeSelectView.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="EditStockView.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Drink.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="KioskMenu.h">
@@ -71,6 +80,12 @@
     <ClInclude Include="TimeSelectView.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="EditStockView.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Drink.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="KioskMenu.resx">
@@ -92,6 +107,9 @@
       <Filter>리소스 파일</Filter>
     </EmbeddedResource>
     <EmbeddedResource Include="SeatSelectView.resx">
+      <Filter>리소스 파일</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimeSelectView.resx">
       <Filter>리소스 파일</Filter>
     </EmbeddedResource>
   </ItemGroup>

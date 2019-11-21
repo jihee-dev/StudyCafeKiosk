@@ -2,44 +2,50 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include"Drink.h"
 using namespace std;
 
 class Admin {
 private:
-	string pw = "1234";
-	int today_people;
-	int today_sales;
-	int cumul_people;
-	int cumul_sales;
-	int drink_stock[3];
+	string pw;
+	int today_people; // 하루 사용자 수
+	int today_sales; // 하루 매출액
+	int cumul_people; // 누적 사용자 수
+	int cumul_sales; // 누적 매출액
+	Drink drinks[3] = { Drink("아메리카노", 2000), Drink("카페라떼", 2500), Drink("차", 3000) };
 
 	Admin() {
-		this->pw = "1234";
-		this->today_people = 1;
-		this->today_sales = 2;
-		this->cumul_people = 3;
-		this->cumul_sales = 4;
-
+		this->pw = "0000";
+		this->today_people = 0;
+		this->today_sales = 0;
+		this->cumul_people = 0;
+		this->cumul_sales = 0;
 	};
+
 	~Admin() {};
 	static Admin* instance;
 
 public:
-	void setCalzero(); //정산 변수들 초기화
-	void calInc(int price); //사용자 수는 1씩 증가시키고 매출은 price 값만큼 증가
-	bool logIn(string input_pw); //pw입력받아서 pw일치하면 admin_mode 호출, 틀리면 오류메시지
-	void setPw(string pw); //비밀번호 설정
-	void setStock(int ame, int latte, int tea); //음료 재고 설정
-												//today만 cout출력하고 누적은 파일IO로 저장
-												//정산 출력---->파일입출력 텍스트에 저장하는걸로
-	void cal_print();
-	void stock_print(); //재고 출력
-	void admin_mode(); //관리자모드: 정산 또는 재고의 print 호출
-
+	// 싱글턴 패턴
 	static Admin* getInstance();
 
+	// getter & setter
 	int getToday_people();
 	int getToday_sales();
 	int getCumul_people();
 	int getCumul_sales();
+	Drink* getDrinks0();
+	Drink* getDrinks1();
+	Drink* getDrinks2();
+
+	// 로그인 관련
+	bool logIn(string input_pw); // 로그인 성공 유무
+	void setPw(string pw); //비밀번호 변경
+
+	// 판매량 관련
+	void setCalzero(); // 정산 변수들 초기화
+	void calInc(Drink* d); // 사용자 수는 1씩 증가시키고 매출은 price 값만큼 증가
+
+	// 재고 관련
+	void stock_mng(Drink d[]); // 음료 재고 설정
 };

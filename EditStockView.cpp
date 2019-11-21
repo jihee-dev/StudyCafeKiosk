@@ -1,0 +1,2 @@
+#include "EditStockView.h"
+
