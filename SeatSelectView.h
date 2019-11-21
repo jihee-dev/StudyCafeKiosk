@@ -73,10 +73,6 @@ namespace KioskProj {
 #pragma endregion
 	private:
 		System::Void SeatSelectView_Load(System::Object^  sender, System::EventArgs^  e) {
-			/* ArrayList^ btnArr = gcnew ArrayList();
-			int num[2] = { 1, 2 };
-
-			array<Button^>^ btn; */
 			this->btns = gcnew cli::array<Button^>(30);
 
 			for (int i = 0; i < 30; i++) {
@@ -102,8 +98,12 @@ namespace KioskProj {
 			}
 		}
 	private:
-		System::Void seatBtn_Click(System::Object^  sender, System::EventArgs^  e) {
-			((Button^)sender)->
+		void seatBtn_Click(System::Object^  sender, System::EventArgs^  e) {
+			Button^ tempBtn = safe_cast<Button^>(sender);
+			int idx = tempBtn->TabIndex;
+
+			Admin::getInstance()->getSeats()[idx].setIsAvailable(false);
+
 			this->Visible = false;
 			KioskProj::TimeSelectView timeView;
 			timeView.ShowDialog();
