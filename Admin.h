@@ -3,6 +3,7 @@
 #include <string>
 #include <fstream>
 #include"Drink.h"
+#include"Seat.h"
 using namespace std;
 
 class Admin {
@@ -13,6 +14,7 @@ private:
 	int cumul_people; // 누적 사용자 수
 	int cumul_sales; // 누적 매출액
 	Drink drinks[3] = { Drink("아메리카노", 2000), Drink("카페라떼", 2500), Drink("차", 3000) };
+	Seat seats[30];
 
 	Admin() {
 		this->pw = "0000";
@@ -20,6 +22,10 @@ private:
 		this->today_sales = 0;
 		this->cumul_people = 0;
 		this->cumul_sales = 0;
+
+		for (int i = 0; i < 30; i++) {
+			this->seats[i] = Seat(i);
+		}
 	};
 
 	~Admin() {};
@@ -34,9 +40,14 @@ public:
 	int getToday_sales();
 	int getCumul_people();
 	int getCumul_sales();
-	Drink* getDrinks0();
-	Drink* getDrinks1();
-	Drink* getDrinks2();
+
+	Drink* getDrinks() {
+		return this->drinks;
+	}
+
+	Seat* getSeats() {
+		return this->seats;
+	}
 
 	// 로그인 관련
 	bool logIn(string input_pw); // 로그인 성공 유무
@@ -47,5 +58,5 @@ public:
 	void calInc(Drink* d); // 사용자 수는 1씩 증가시키고 매출은 price 값만큼 증가
 
 	// 재고 관련
-	void stock_mng(Drink d[]); // 음료 재고 설정
+	void stock_mng(int ame, int latte, int tea); // 음료 재고 설정
 };

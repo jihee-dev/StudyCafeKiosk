@@ -9,7 +9,7 @@ Drink::Drink(string name, int price) {
 }
 
 bool Drink::canBuy(int n) {
-	return ((this->stock - n) > 0);
+	return ((this->stock - n) >= 0);
 }
 
 void Drink::addStock(int c) {

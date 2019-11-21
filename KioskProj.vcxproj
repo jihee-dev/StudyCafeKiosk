@@ -142,9 +142,11 @@
     <ClCompile Include="KioskMenu.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="ResetPwView.cpp" />
+    <ClCompile Include="Seat.cpp" />
     <ClCompile Include="SeatSelectView.cpp" />
     <ClCompile Include="StockView.cpp" />
     <ClCompile Include="TimeSelectView.cpp" />
+    <ClCompile Include="User.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Admin.h" />
@@ -167,6 +169,7 @@
     <ClInclude Include="ResetPwView.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Seat.h" />
     <ClInclude Include="SeatSelectView.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -176,6 +179,7 @@
     <ClInclude Include="TimeSelectView.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="User.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AdminLogin.resx">

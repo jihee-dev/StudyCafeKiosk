@@ -1,5 +1,6 @@
 #pragma once
 #include"TimeSelectView.h"
+#include"Admin.h"
 
 namespace KioskProj {
 
@@ -80,7 +81,7 @@ namespace KioskProj {
 
 			for (int i = 0; i < 30; i++) {
 				this->btns[i] = gcnew System::Windows::Forms::Button();
-				this->btns[i]->Location = System::Drawing::Point(130 + (133 * (i % 6)), 77.5 + (85 * (i / 6)));
+				this->btns[i]->Location = System::Drawing::Point(130 + (133 * (i % 6)), 77 + (85 * (i / 6)));
 				this->btns[i]->Size = System::Drawing::Size(75, 55);
 				this->btns[i]->Font = (gcnew System::Drawing::Font(L"나눔고딕", 13));
 				this->btns[i]->TabIndex = i;
@@ -90,20 +91,19 @@ namespace KioskProj {
 				this->Controls->Add(this->btns[i]);
 				this->btns[i]->Click += gcnew System::EventHandler(this, &SeatSelectView::seatBtn_Click);
 
-				// 버튼 비활성화
-				
-				// this->btns[i]->BackColor = System::Drawing::Color::LightCoral;
-				// this->btns[i]->Enabled = false;
-				
-				
-				// 버튼 활성화
-				this->btns[i]->BackColor = System::Drawing::Color::LightGreen;
-				this->btns[i]->Enabled = true;
-				
+				if (Admin::getInstance()->getSeats()[i].getIsAvailable()) { // 버튼 활성화
+					this->btns[i]->BackColor = System::Drawing::Color::LightGreen;
+					this->btns[i]->Enabled = true;
+				}
+				else { // 버튼 비활성화
+					this->btns[i]->BackColor = System::Drawing::Color::LightCoral;
+					this->btns[i]->Enabled = false;
+				}				
 			}
 		}
 	private:
 		System::Void seatBtn_Click(System::Object^  sender, System::EventArgs^  e) {
+			((Button^)sender)->
 			this->Visible = false;
 			KioskProj::TimeSelectView timeView;
 			timeView.ShowDialog();

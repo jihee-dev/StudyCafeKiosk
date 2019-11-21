@@ -108,7 +108,7 @@ namespace KioskProj {
 			this->ame_stock_text->Name = L"ame_stock_text";
 			this->ame_stock_text->Size = System::Drawing::Size(202, 21);
 			this->ame_stock_text->TabIndex = 4;
-			this->ame_stock_text->Text = Admin::getInstance()->getDrinks0()->getStock().ToString();
+			this->ame_stock_text->Text = "재고";
 			this->ame_stock_text->Click += gcnew System::EventHandler(this, &StockView::ame_stock_text_Click);
 			// 
 			// latte_stock_text
@@ -119,7 +119,7 @@ namespace KioskProj {
 			this->latte_stock_text->Name = L"latte_stock_text";
 			this->latte_stock_text->Size = System::Drawing::Size(206, 21);
 			this->latte_stock_text->TabIndex = 5;
-			this->latte_stock_text->Text = Admin::getInstance()->getDrinks1()->getStock().ToString();
+			this->latte_stock_text->Text = "재고";
 			this->latte_stock_text->Click += gcnew System::EventHandler(this, &StockView::latte_stock_text_Click);
 			// 
 			// tea_stock_text
@@ -130,7 +130,7 @@ namespace KioskProj {
 			this->tea_stock_text->Name = L"tea_stock_text";
 			this->tea_stock_text->Size = System::Drawing::Size(193, 21);
 			this->tea_stock_text->TabIndex = 6;
-			this->tea_stock_text->Text = Admin::getInstance()->getDrinks2()->getStock().ToString();
+			this->tea_stock_text->Text = "재고";
 			this->tea_stock_text->Click += gcnew System::EventHandler(this, &StockView::tea_stock_text_Click);
 			// 
 			// edit_stock_btn
@@ -167,6 +167,9 @@ namespace KioskProj {
 #pragma endregion
 	private:
 		System::Void StockView_Load(System::Object^  sender, System::EventArgs^  e) {
+			this->ame_stock_text->Text = Admin::getInstance()->getDrinks()[0].getStock().ToString();
+			this->latte_stock_text->Text = Admin::getInstance()->getDrinks()[1].getStock().ToString();
+			this->tea_stock_text->Text = Admin::getInstance()->getDrinks()[2].getStock().ToString();
 		}
 
 		System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {

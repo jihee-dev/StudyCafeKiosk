@@ -21,18 +21,6 @@ int Admin::getCumul_sales() {
 	return cumul_sales;
 }
 
-Drink* Admin::getDrinks0() {
-	return this->drinks;
-}
-
-Drink* Admin::getDrinks1() {
-	return drinks + 1;
-}
-
-Drink* Admin::getDrinks2() {
-	return drinks + 2;
-}
-
 bool Admin::logIn(string input_pw) {
 	return input_pw == this->pw;
 }
@@ -59,15 +47,10 @@ void Admin::calInc(Drink* d) { // 구매시 정산 내역 수정
 	}
 }
 
-void Admin::stock_mng(Drink drinks[]) {
-	// 재고 수정 확인
-	int change;   // 변경 입력 저장
-	int stock_select, stock_amount;  // 재고 변경할 음료 번호, 수량
-	int more_input = 1;
-
-	for (int i = 0; i < 3; i++) {
-		drinks[i].addStock(3);
-	}
+void Admin::stock_mng(int ame, int latte, int tea) {
+	this->getDrinks()[0].addStock(ame);
+	this->getDrinks()[1].addStock(latte);
+	this->getDrinks()[2].addStock(tea);
 }
 
 Admin* Admin::instance = nullptr;

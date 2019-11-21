@@ -191,15 +191,12 @@ namespace KioskProj {
 		System::Void EditStockView_Load(System::Object^  sender, System::EventArgs^  e) {
 		}
 		System::Void edit_stock_btn_Click(System::Object^  sender, System::EventArgs^  e) {
-			// drink 수 변경 코드 추가
 			msclr::interop::marshal_context context;
 			int ame = stoi( context.marshal_as<std::string>(this->edit_ame->Text->ToString()));
 			int latte = stoi(context.marshal_as<std::string>(this->edit_latte->Text->ToString()));
 			int tea = stoi(context.marshal_as<std::string>(this->edit_tea->Text->ToString()));
 
-			Admin::getInstance()->getDrinks0()->addStock(ame);
-			Admin::getInstance()->getDrinks1()->addStock(latte);
-			Admin::getInstance()->getDrinks2()->addStock(tea);
+			Admin::getInstance()->stock_mng(ame, latte, tea);
 
 			this->Visible = false;
 		}
