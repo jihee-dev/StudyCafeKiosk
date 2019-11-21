@@ -1,6 +1,7 @@
 #pragma once
 #include<iostream>
 #include"AdminLogin.h"
+#include"SeatSelectView.h"
 
 namespace KioskProj {
 
@@ -60,7 +61,6 @@ namespace KioskProj {
 			// 
 			// orderBtn
 			// 
-			this->orderBtn->Enabled = false;
 			this->orderBtn->Font = (gcnew System::Drawing::Font(L"³ª´®°íµñ", 12.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(129)));
 			this->orderBtn->Location = System::Drawing::Point(300, 75);
@@ -116,7 +116,8 @@ namespace KioskProj {
 		}
 
 		System::Void orderBtn_Click(System::Object^  sender, System::EventArgs^  e) {
-		
+			KioskProj::SeatSelectView seatView;
+			seatView.ShowDialog();
 		}
 
 		System::Void adminBtn_Click(System::Object^  sender, System::EventArgs^  e) {

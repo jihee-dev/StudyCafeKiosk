@@ -1,4 +1,5 @@
 #pragma once
+#include"TimeSelectView.h"
 
 namespace KioskProj {
 
@@ -8,8 +9,8 @@ namespace KioskProj {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-
-	using namespace System::Collections;
+	using namespace std;
+	using namespace cli;
 
 	/// <summary>
 	/// SeatSelectView에 대한 요약입니다.
@@ -36,6 +37,10 @@ namespace KioskProj {
 				delete components;
 			}
 		}
+	private:
+		cli::array<System::Windows::Forms::Button^>^ btns;
+
+	protected:
 
 	private:
 		/// <summary>
@@ -51,17 +56,14 @@ namespace KioskProj {
 		void InitializeComponent(void)
 		{
 			this->SuspendLayout();
-
-			ArrayList^ btnArr = gcnew ArrayList();
-
-
 			// 
 			// SeatSelectView
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(7, 12);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(284, 261);
+			this->ClientSize = System::Drawing::Size(1000, 550);
 			this->Name = L"SeatSelectView";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"SeatSelectView";
 			this->Load += gcnew System::EventHandler(this, &SeatSelectView::SeatSelectView_Load);
 			this->ResumeLayout(false);
@@ -70,7 +72,41 @@ namespace KioskProj {
 #pragma endregion
 	private:
 		System::Void SeatSelectView_Load(System::Object^  sender, System::EventArgs^  e) {
-			
+			/* ArrayList^ btnArr = gcnew ArrayList();
+			int num[2] = { 1, 2 };
+
+			array<Button^>^ btn; */
+			this->btns = gcnew cli::array<Button^>(30);
+
+			for (int i = 0; i < 30; i++) {
+				this->btns[i] = gcnew System::Windows::Forms::Button();
+				this->btns[i]->Location = System::Drawing::Point(130 + (133 * (i % 6)), 77.5 + (85 * (i / 6)));
+				this->btns[i]->Size = System::Drawing::Size(75, 55);
+				this->btns[i]->Font = (gcnew System::Drawing::Font(L"나눔고딕", 13));
+				this->btns[i]->TabIndex = i;
+				this->btns[i]->Name = "button" + i.ToString();
+				this->btns[i]->Text = (i+1).ToString();
+				this->btns[i]->UseVisualStyleBackColor = true;
+				this->Controls->Add(this->btns[i]);
+				this->btns[i]->Click += gcnew System::EventHandler(this, &SeatSelectView::seatBtn_Click);
+
+				// 버튼 비활성화
+				
+				// this->btns[i]->BackColor = System::Drawing::Color::LightCoral;
+				// this->btns[i]->Enabled = false;
+				
+				
+				// 버튼 활성화
+				this->btns[i]->BackColor = System::Drawing::Color::LightGreen;
+				this->btns[i]->Enabled = true;
+				
+			}
+		}
+	private:
+		System::Void seatBtn_Click(System::Object^  sender, System::EventArgs^  e) {
+			this->Visible = false;
+			KioskProj::TimeSelectView timeView;
+			timeView.ShowDialog();
 		}
 	};
 }

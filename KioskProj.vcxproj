@@ -141,6 +141,7 @@
     <ClCompile Include="ResetPwView.cpp" />
     <ClCompile Include="SeatSelectView.cpp" />
     <ClCompile Include="StockView.cpp" />
+    <ClCompile Include="TimeSelectView.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Admin.h" />
@@ -165,6 +166,9 @@
     <ClInclude Include="StockView.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="TimeSelectView.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AdminLogin.resx">
@@ -187,6 +191,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="StockView.resx">
       <DependentUpon>StockView.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimeSelectView.resx">
+      <DependentUpon>TimeSelectView.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
