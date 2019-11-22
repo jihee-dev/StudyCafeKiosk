@@ -304,7 +304,7 @@ namespace KioskProj {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(7, 12);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(984, 511);
+			this->ClientSize = System::Drawing::Size(1000, 550);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->input_text);
 			this->Controls->Add(this->total_text);
