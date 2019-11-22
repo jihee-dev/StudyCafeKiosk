@@ -140,6 +140,7 @@
     <ClCompile Include="Drink.cpp" />
     <ClCompile Include="DrinkSelectView.cpp" />
     <ClCompile Include="EditStockView.cpp" />
+    <ClCompile Include="FinalView.cpp" />
     <ClCompile Include="KioskMenu.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="OrderCheckView.cpp" />
@@ -166,6 +167,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="EditStockView.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="FinalView.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="KioskMenu.h">
@@ -204,6 +208,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EditStockView.resx">
       <DependentUpon>EditStockView.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FinalView.resx">
+      <DependentUpon>FinalView.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KioskMenu.resx">
       <DependentUpon>KioskMenu.h</DependentUpon>

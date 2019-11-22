@@ -11,6 +11,7 @@ User::User()
 	my_drink[0] = 0;
 	my_drink[1] = 0;
 	my_drink[2] = 0;
+	total_pay = 0;
 	// order_complete = false;
 }
 
@@ -38,32 +39,6 @@ void User::select_time(int n)
 {
 	time = n;
 }
-
-void User::buy_drink(int n[])
-{
-	for (int i = 0; i<3; i++)
-	{
-		my_drink[i] = n[i];
-	}
-}
-
-// user 음료 재고 확인
-/*
-bool User::check_stock(Drink drinks[], int drink_sel, int drink_count)
-{
-	if (drinks[drink_sel - 1].amount >= drink_count)
-	{
-		drinks[drink_sel - 1].amount -= drink_count; // 이부분이 재고 감소입니다!!
-		return true;
-	}
-	else
-	{
-		cout << "재고가 부족합니다." << endl;
-		return false;
-	}
-}
-
-*/
 
 /*int User::print_receipt(){
 
@@ -93,10 +68,12 @@ cout << "***************************" << endl;
 return sum;
 }*/
 
-int User::pay(int sum, int input)
-{
-	if (sum > input)
-		return sum - input;
+int User::pay(int p) {
+	if (total_pay <= p) {
+		this->change = p - total_pay;
+		return this->change;
+	}
+		
 	else
 		return -1;
 }

@@ -50,6 +50,9 @@ namespace KioskProj {
 	private: System::Windows::Forms::Label^  listText2;
 	private: System::Windows::Forms::Label^  listText1;
 	private: System::Windows::Forms::Label^  label2;
+	private: System::Windows::Forms::Label^  label3;
+	private: System::Windows::Forms::Label^  label4;
+	private: System::Windows::Forms::Label^  label5;
 
 
 	private:
@@ -74,6 +77,9 @@ namespace KioskProj {
 			this->listText2 = (gcnew System::Windows::Forms::Label());
 			this->listText1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// order_tea
@@ -131,7 +137,7 @@ namespace KioskProj {
 			// 
 			this->listText3->AutoSize = true;
 			this->listText3->Font = (gcnew System::Drawing::Font(L"³ª´®°íµñ", 15));
-			this->listText3->Location = System::Drawing::Point(315, 288);
+			this->listText3->Location = System::Drawing::Point(315, 284);
 			this->listText3->Name = L"listText3";
 			this->listText3->Size = System::Drawing::Size(43, 23);
 			this->listText3->TabIndex = 17;
@@ -141,7 +147,7 @@ namespace KioskProj {
 			// 
 			this->listText2->AutoSize = true;
 			this->listText2->Font = (gcnew System::Drawing::Font(L"³ª´®°íµñ", 15));
-			this->listText2->Location = System::Drawing::Point(315, 208);
+			this->listText2->Location = System::Drawing::Point(315, 204);
 			this->listText2->Name = L"listText2";
 			this->listText2->Size = System::Drawing::Size(56, 23);
 			this->listText2->TabIndex = 16;
@@ -151,7 +157,7 @@ namespace KioskProj {
 			// 
 			this->listText1->AutoSize = true;
 			this->listText1->Font = (gcnew System::Drawing::Font(L"³ª´®°íµñ", 15));
-			this->listText1->Location = System::Drawing::Point(315, 128);
+			this->listText1->Location = System::Drawing::Point(315, 124);
 			this->listText1->Name = L"listText1";
 			this->listText1->Size = System::Drawing::Size(111, 23);
 			this->listText1->TabIndex = 15;
@@ -167,11 +173,44 @@ namespace KioskProj {
 			this->label2->TabIndex = 23;
 			this->label2->Text = L"ÇöÀç Àç°í: ¾Æ¸Þ¸®Ä«³ë 0°³ / Ä«Æä¶ó¶¼ 0°³ / Â÷ 0°³";
 			// 
+			// label3
+			// 
+			this->label3->AutoSize = true;
+			this->label3->Font = (gcnew System::Drawing::Font(L"³ª´®°íµñ", 9));
+			this->label3->Location = System::Drawing::Point(320, 147);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(51, 14);
+			this->label3->TabIndex = 24;
+			this->label3->Text = L"2,000\\";
+			// 
+			// label4
+			// 
+			this->label4->AutoSize = true;
+			this->label4->Font = (gcnew System::Drawing::Font(L"³ª´®°íµñ", 9));
+			this->label4->Location = System::Drawing::Point(320, 226);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(51, 14);
+			this->label4->TabIndex = 25;
+			this->label4->Text = L"3,000\\";
+			// 
+			// label5
+			// 
+			this->label5->AutoSize = true;
+			this->label5->Font = (gcnew System::Drawing::Font(L"³ª´®°íµñ", 9));
+			this->label5->Location = System::Drawing::Point(320, 307);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(51, 14);
+			this->label5->TabIndex = 26;
+			this->label5->Text = L"2,500\\";
+			// 
 			// DrinkSelectView
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(7, 12);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(984, 511);
+			this->Controls->Add(this->label5);
+			this->Controls->Add(this->label4);
+			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->order_tea);
 			this->Controls->Add(this->label1);
@@ -187,6 +226,7 @@ namespace KioskProj {
 			this->Load += gcnew System::EventHandler(this, &DrinkSelectView::DrinkSelectView_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
+
 		}
 #pragma endregion
 	private:
@@ -230,5 +270,5 @@ namespace KioskProj {
 				check.ShowDialog();
 			}
 		}
-	};
+};
 }

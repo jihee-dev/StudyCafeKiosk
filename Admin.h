@@ -55,7 +55,7 @@ public:
 
 	// 판매량 관련
 	void setCalzero(); // 정산 변수들 초기화
-	void calInc(Drink* d); // 사용자 수는 1씩 증가시키고 매출은 price 값만큼 증가
+	void calInc(); // 사용자 수는 1씩 증가시키고 매출은 price 값만큼 증가
 
 	// 재고 관련
 	void stock_mng(int ame, int latte, int tea); // 음료 재고 설정

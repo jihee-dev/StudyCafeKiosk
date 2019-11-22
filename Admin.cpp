@@ -3,6 +3,7 @@
 #include<fstream>
 #include"Admin.h"
 #include"Drink.h"
+#include"User.h"
 using namespace std;
 
 int Admin::getToday_people() {
@@ -34,11 +35,11 @@ void Admin::setCalzero() { // 하루 정산 초기화
 	today_sales = 0;
 }
 
-void Admin::calInc(Drink* d) { // 구매시 정산 내역 수정
+void Admin::calInc() { // 구매시 정산 내역 수정
 	today_people += 1;
 	cumul_people += 1;
-	today_sales += d->getPrice();
-	cumul_sales += d->getPrice();
+	today_sales += User::getInstance()->getTotalPay();
+	cumul_sales += User::getInstance()->getTotalPay();
 
 	ofstream fileOut("calculate.txt");
 	if (fileOut.is_open()) {

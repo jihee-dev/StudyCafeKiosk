@@ -48,5 +48,11 @@ public:
 	void reset();  // 하루 지나면 리셋
 
 	bool canBuy(int n);
+
+	void sellDrink(int n) {
+		this->stock -= n;
+		this->today_count += n;
+		this->all_count += n;
+	}
 };
 #endif // !DRINK_H
