@@ -1,4 +1,8 @@
 #pragma once
+#include"User.h"
+#include"Admin.h"
+#include<msclr/marshal_cppstd.h>
+#include"DrinkSelectView.h"
 
 namespace KioskProj {
 
@@ -34,6 +38,12 @@ namespace KioskProj {
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::TextBox^  timeInput;
+	protected:
+	private: System::Windows::Forms::Label^  label;
+
+	private: System::Windows::Forms::Button^  submitBtn;
+	private: System::Windows::Forms::Label^  notice_text;
 
 	private:
 		/// <summary>
@@ -48,22 +58,88 @@ namespace KioskProj {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->timeInput = (gcnew System::Windows::Forms::TextBox());
+			this->label = (gcnew System::Windows::Forms::Label());
+			this->submitBtn = (gcnew System::Windows::Forms::Button());
+			this->notice_text = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
+			// 
+			// timeInput
+			// 
+			this->timeInput->Font = (gcnew System::Drawing::Font(L"나눔고딕", 12.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(129)));
+			this->timeInput->Location = System::Drawing::Point(364, 225);
+			this->timeInput->Name = L"timeInput";
+			this->timeInput->Size = System::Drawing::Size(191, 27);
+			this->timeInput->TabIndex = 0;
+			// 
+			// label
+			// 
+			this->label->AutoSize = true;
+			this->label->Font = (gcnew System::Drawing::Font(L"나눔고딕", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(129)));
+			this->label->Location = System::Drawing::Point(360, 181);
+			this->label->Name = L"label";
+			this->label->Size = System::Drawing::Size(265, 21);
+			this->label->TabIndex = 1;
+			this->label->Text = L"사용하실 시간을 입력해 주세요.";
+			// 
+			// submitBtn
+			// 
+			this->submitBtn->Font = (gcnew System::Drawing::Font(L"나눔고딕", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(129)));
+			this->submitBtn->Location = System::Drawing::Point(573, 225);
+			this->submitBtn->Name = L"submitBtn";
+			this->submitBtn->Size = System::Drawing::Size(78, 27);
+			this->submitBtn->TabIndex = 3;
+			this->submitBtn->Text = L"확인";
+			this->submitBtn->UseVisualStyleBackColor = true;
+			this->submitBtn->Click += gcnew System::EventHandler(this, &TimeSelectView::submitBtn_Click);
+			// 
+			// notice_text
+			// 
+			this->notice_text->AutoSize = true;
+			this->notice_text->Font = (gcnew System::Drawing::Font(L"나눔고딕", 12));
+			this->notice_text->Location = System::Drawing::Point(360, 280);
+			this->notice_text->Name = L"notice_text";
+			this->notice_text->Size = System::Drawing::Size(221, 19);
+			this->notice_text->TabIndex = 4;
+			this->notice_text->Text = L"사용 시간은 최대 12시간입니다";
 			// 
 			// TimeSelectView
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(7, 12);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1000, 550);
+			this->Controls->Add(this->notice_text);
+			this->Controls->Add(this->submitBtn);
+			this->Controls->Add(this->label);
+			this->Controls->Add(this->timeInput);
 			this->Name = L"TimeSelectView";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"TimeSelectView";
+			this->Text = L"시간제 선택";
 			this->Load += gcnew System::EventHandler(this, &TimeSelectView::TimeSelectView_Load);
 			this->ResumeLayout(false);
+			this->PerformLayout();
 
 		}
 #pragma endregion
-	private: System::Void TimeSelectView_Load(System::Object^  sender, System::EventArgs^  e) {
-	}
-	};
+	private:
+		System::Void TimeSelectView_Load(System::Object^  sender, System::EventArgs^  e) {}
+		System::Void submitBtn_Click(System::Object^  sender, System::EventArgs^  e) {
+			msclr::interop::marshal_context context;
+			int t = stoi(context.marshal_as<std::string>(this->timeInput->Text->ToString()));
+			
+			if ((t <= 0) || (t > 12)) {
+				this->notice_text->Text = "1부터 12 사이의 숫자를 입력해 주세요.";
+			}
+
+			else {
+				User::getInstance()->setter_time(t);
+				this->Visible = false;
+				KioskProj::DrinkSelectView drinkView;
+				drinkView.ShowDialog();
+			}
+		}
+};
 }

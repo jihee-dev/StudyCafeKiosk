@@ -1,6 +1,7 @@
 #pragma once
 #include"TimeSelectView.h"
 #include"Admin.h"
+#include"User.h"
 
 namespace KioskProj {
 
@@ -102,7 +103,8 @@ namespace KioskProj {
 			Button^ tempBtn = safe_cast<Button^>(sender);
 			int idx = tempBtn->TabIndex;
 
-			Admin::getInstance()->getSeats()[idx].setIsAvailable(false);
+			User::getInstance()->setter_seat_num(idx + 1); // 인덱스 번호가 아닌 좌석 번호
+			// Admin::getInstance()->getSeats()[idx].setIsAvailable(false);
 
 			this->Visible = false;
 			KioskProj::TimeSelectView timeView;

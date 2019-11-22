@@ -11,6 +11,17 @@ User::User()
 	my_drink[0] = 0;
 	my_drink[1] = 0;
 	my_drink[2] = 0;
+	// order_complete = false;
+}
+
+User* User::instance = nullptr;
+
+User* User::getInstance() {
+	if (instance == nullptr) {
+		instance = new User();
+	}
+
+	return instance;
 }
 
 int User::select_seat(int n)
@@ -54,8 +65,7 @@ bool User::check_stock(Drink drinks[], int drink_sel, int drink_count)
 
 */
 
-/*int User::print_receipt()
-{
+/*int User::print_receipt(){
 
 int sum = time * 2000;
 cout << endl << "***************************" << endl;

@@ -96,6 +96,7 @@ namespace KioskProj {
 			this->listText3->Size = System::Drawing::Size(43, 23);
 			this->listText3->TabIndex = 10;
 			this->listText3->Text = L"Tea";
+			this->listText3->Click += gcnew System::EventHandler(this, &EditStockView::listText3_Click);
 			// 
 			// listText2
 			// 
@@ -106,6 +107,7 @@ namespace KioskProj {
 			this->listText2->Size = System::Drawing::Size(56, 23);
 			this->listText2->TabIndex = 9;
 			this->listText2->Text = L"Latte";
+			this->listText2->Click += gcnew System::EventHandler(this, &EditStockView::listText2_Click);
 			// 
 			// listText1
 			// 
@@ -116,6 +118,7 @@ namespace KioskProj {
 			this->listText1->Size = System::Drawing::Size(111, 23);
 			this->listText1->TabIndex = 8;
 			this->listText1->Text = L"Americano";
+			this->listText1->Click += gcnew System::EventHandler(this, &EditStockView::listText1_Click);
 			// 
 			// latte_stock_text
 			// 
@@ -133,6 +136,7 @@ namespace KioskProj {
 			this->edit_ame->TabIndex = 11;
 			this->edit_ame->Text = L"0";
 			this->edit_ame->TextAlign = System::Windows::Forms::HorizontalAlignment::Right;
+			this->edit_ame->TextChanged += gcnew System::EventHandler(this, &EditStockView::edit_ame_TextChanged);
 			// 
 			// edit_latte
 			// 
@@ -143,6 +147,7 @@ namespace KioskProj {
 			this->edit_latte->TabIndex = 12;
 			this->edit_latte->Text = L"0";
 			this->edit_latte->TextAlign = System::Windows::Forms::HorizontalAlignment::Right;
+			this->edit_latte->TextChanged += gcnew System::EventHandler(this, &EditStockView::edit_latte_TextChanged);
 			// 
 			// label1
 			// 
@@ -153,6 +158,7 @@ namespace KioskProj {
 			this->label1->Size = System::Drawing::Size(300, 23);
 			this->label1->TabIndex = 14;
 			this->label1->Text = L"추가할 재고의 수를 입력해 주세요";
+			this->label1->Click += gcnew System::EventHandler(this, &EditStockView::label1_Click);
 			// 
 			// edit_tea
 			// 
@@ -163,6 +169,7 @@ namespace KioskProj {
 			this->edit_tea->TabIndex = 13;
 			this->edit_tea->Text = L"0";
 			this->edit_tea->TextAlign = System::Windows::Forms::HorizontalAlignment::Right;
+			this->edit_tea->TextChanged += gcnew System::EventHandler(this, &EditStockView::edit_tea_TextChanged);
 			// 
 			// EditStockView
 			// 
@@ -200,5 +207,19 @@ namespace KioskProj {
 
 			this->Visible = false;
 		}
+private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void edit_latte_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void edit_ame_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void edit_tea_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void listText3_Click(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void listText2_Click(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void listText1_Click(System::Object^  sender, System::EventArgs^  e) {
+}
 };
 }

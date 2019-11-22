@@ -6,12 +6,19 @@
 
 class User
 {
-	int seat_num; // 입력한 좌석 번호
+private:
+	int seat_num; // 좌석 번호(좌석 버튼의 인덱스 번호 X)
 	int time;     // 입력한 시간
 	int my_drink[3] = {};    // 구매한 음료 수량(0:아메,1:라떼,2:차)
+	// bool order_complete;
+
+	User();
+	static User* instance;
 
 public:
-	User();
+	// 싱글턴 패턴
+	static User* getInstance();
+
 	// 1. 좌석선택
 	int select_seat(int n);
 	// bool seat_check(Seat seats[]);   // 좌석 검사 (사용중인지 아닌지)
@@ -19,10 +26,7 @@ public:
 	void select_time(int n);
 	// 3. 음료 선택
 	void buy_drink(int n[]);
-	bool check_stock(Drink d[], int a, int b);   // drink 객체에 저장되어있는 재고 확인
-												 // 4. 영수증 출력
-												 //int print_receipt();
-												 // 5. 결제
+	
 	int pay(int sum, int input);
 	//getter setter
 	int getter_seat_num();

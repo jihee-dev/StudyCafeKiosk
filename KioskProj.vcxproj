@@ -138,9 +138,11 @@
     <ClCompile Include="AdminMenu.cpp" />
     <ClCompile Include="CalView.cpp" />
     <ClCompile Include="Drink.cpp" />
+    <ClCompile Include="DrinkSelectView.cpp" />
     <ClCompile Include="EditStockView.cpp" />
     <ClCompile Include="KioskMenu.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="OrderCheckView.cpp" />
     <ClCompile Include="ResetPwView.cpp" />
     <ClCompile Include="Seat.cpp" />
     <ClCompile Include="SeatSelectView.cpp" />
@@ -160,10 +162,16 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Drink.h" />
+    <ClInclude Include="DrinkSelectView.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="EditStockView.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="KioskMenu.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="OrderCheckView.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="ResetPwView.h">
@@ -191,12 +199,18 @@
     <EmbeddedResource Include="CalView.resx">
       <DependentUpon>CalView.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DrinkSelectView.resx">
+      <DependentUpon>DrinkSelectView.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditStockView.resx">
       <DependentUpon>EditStockView.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KioskMenu.resx">
       <DependentUpon>KioskMenu.h</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderCheckView.resx">
+      <DependentUpon>OrderCheckView.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ResetPwView.resx">
       <DependentUpon>ResetPwView.h</DependentUpon>
